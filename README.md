@@ -14,7 +14,10 @@ I had difficulty finding code examples showing how these new classes ought to be
 - Plugin to host: user manipulates GUI controls, changes are recorded by a host DAW.
 - Host to plugin: DAW recreates user's manipulations automatically using playback.
 
+# Warning: may not be ready for prime time #
 I have fully tested the Audio Unit (v2) build under Logic Pro X on the Mac, and the VST (v2) build under Reaper v5.52/x64 on Windows 10, including automation with all four parameters. I do not have the means to test other plugin types.
+
+Undo functionality is a bit spotty, but this can likely be fixed through correct use of **UndoManager** transaction management. However **redo does not work at all, and I'm told this is a "known bug"**. It may be that the **AudioProcessorValueTreeState** approach is not yet ready for full deployment. If that turns out to be the case, the earlier approach used in [juce-AudioParameterTest](https://github.com/getdunne/juce-AudioParameterTest) may be the one to choose for the moment.
 
 # Detailed description #
 
