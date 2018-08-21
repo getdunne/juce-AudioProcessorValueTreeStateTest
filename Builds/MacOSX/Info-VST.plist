@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <string>com.yourcompany.juceAudioProcessorValueTreeStateTest</string>
     <key>CFBundleName</key>
     <string>juce-AudioProcessorValueTreeStateTest</string>
     <key>CFBundleDisplayName</key>
