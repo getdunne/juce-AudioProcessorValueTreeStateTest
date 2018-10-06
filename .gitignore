@@ -1,10 +1,12 @@
+# JUCE
+JuceLibraryCode/
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Misc
+## Misc Mac
 .DS_Store
-JuceLibraryCode/
 
 ## Build generated
 Builds/

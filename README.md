@@ -3,7 +3,7 @@ This is a very simple [JUCE](https://www.juce.com)-based audio plugin illustrati
 
 As simple as this code may be, it is not a toy example. I have attempted to produce code which can be used as a template for realistic plugin projects with many more parameters. An important aspect of this is that all of the parameter-related code is encapsulated in a single **PluginParameters** class.
 
-# Background #
+## Background
 [JUCE](https://www.juce.com) version 5 introduces a new set of classes for handling communication of parameter-value changes between a plugin (VST, AU, etc.) and its host program (e.g. [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation)). These are built around **AudioProcessorValueTreeState**, whose definition includes a number of related classes for small objects such as Listeners, and an entirely new class, **AudioProcessorValueTreeState::Parameter** which essentially replaces the older class **AudioParameter** and its subclasses.
 
 **AudioProcessorValueTreeState** and related classes offer two advantages over the older approach:
@@ -14,12 +14,11 @@ I had difficulty finding code examples showing how these new classes ought to be
 - Plugin to host: user manipulates GUI controls, changes are recorded by a host DAW.
 - Host to plugin: DAW recreates user's manipulations automatically using playback.
 
-# Warning: may not be ready for prime time #
 I have fully tested the Audio Unit (v2) build under Logic Pro X on the Mac, and the VST (v2) build under Reaper v5.52/x64 on Windows 10, including automation with all four parameters. I do not have the means to test other plugin types.
 
-With JUCE v5.1, undo functionality was spotty, and redo didn't work at all. I was told these were "known bugs" at the time, and they *appear to be fixed* in JUCE 5.3.2.
+With JUCE v5.1, undo functionality was spotty, and redo didn't work at all. I was told these were "known bugs" at the time, but they appear to be fixed in JUCE 5.3.2.
 
-# Detailed description #
+## Detailed description
 
 I intend to write a more detailed description of this code soon, which will be available at http://getdunne.net/wiki/doku.php?id=juce_and_parameter_automation.
 
@@ -34,3 +33,32 @@ This plugin has exactly four parameters, illustrating four distinct data types:
 4. **Loud** is a Boolean parameter. When true, the *level* setting is effectively doubled.
 
 The GUI also includes "Undo" and "Redo" buttons, which trigger the corresponding actions in a **juce::UndoManager** object. At the time of writing, though, the Undo button doesn't work as cleanly as I would prefer, and **the Redo button doesn't work at all**. I would be very grateful for any feedback. You can reach me on the [JUCE Forum](https://forum.juce.com/) as user **getdunne**.
+
+## Code licensing terms
+This code is licensed under the terms of the MIT License (below, and also in the file *LICENSE* in this repo). To compile it, you will need a copy of the [JUCE framework](https://juce.com), and the resulting *combined work* will be subject to JUCE's own licensing terms.
+
+It is my INTENT, as the author of this code, that everyone should have the right to use all or part of it in any JUCE-based program, and in the event that any such program should become subject to the GPL3 license (in accordance with the JUCE license terms), that this right should not be abridged. However, I doubt that this statement of intent would carry any weight under the law, so at this point I can only say: USE AT YOUR OWN RISK.
+
+Shane Dunne, October 2018
+
+> The MIT License (MIT)
+> 
+> Copyright (c) 2017-2018 Shane D. Dunne
+> 
+> Permission is hereby granted, free of charge, to any person obtaining a copy
+> of this software and associated documentation files (the "Software"), to deal
+> in the Software without restriction, including without limitation the rights
+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+> copies of the Software, and to permit persons to whom the Software is
+> furnished to do so, subject to the following conditions:
+> 
+> The above copyright notice and this permission notice shall be included in
+> all copies or substantial portions of the Software.
+> 
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+> THE SOFTWARE.
